@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management API - Diagramas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header p {
+            color: #a0a0a0;
+            font-size: 1.1rem;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            color: #1a1a2e;
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .diagram-section {
+            margin-bottom: 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .diagram-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .diagram-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid;
+            border-image: linear-gradient(90deg, #00d9ff, #00ff88) 1;
+            display: inline-block;
+        }
+
+        .diagram-section p {
+            color: #a0a0a0;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .diagram-container {
+            background: #fff;
+            border-radius: 10px;
+            padding: 1rem;
+            overflow-x: auto;
+            text-align: center;
+        }
+
+        .diagram-container img {
+            max-width: 100%;
+            height: auto;
+            display: inline-block;
+        }
+
+        .diagram-container object {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-structural { background: #3498db; }
+        .badge-behavioral { background: #e74c3c; }
+        .badge-deployment { background: #27ae60; }
+        .badge-data { background: #9b59b6; }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .diagram-section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Product Management API</h1>
+        <p>Documentacion de Arquitectura y Diagramas UML</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#architecture">Arquitectura</a></li>
+            <li><a href="#use-case">Casos de Uso</a></li>
+            <li><a href="#class">Clases</a></li>
+            <li><a href="#component">Componentes</a></li>
+            <li><a href="#sequence-auth">Secuencia Auth</a></li>
+            <li><a href="#sequence-products">Secuencia Productos</a></li>
+            <li><a href="#er">Entidad-Relacion</a></li>
+            <li><a href="#deployment">Despliegue</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="architecture" class="diagram-section">
+            <span class="badge badge-structural">Arquitectura</span>
+            <h2>Vista General de Arquitectura</h2>
+            <p>Muestra una vision completa de la arquitectura del sistema, incluyendo todas las capas, componentes principales y sus interacciones.</p>
+            <div class="diagram-container">
+                <object type="image/svg+xml" data="architecture-overview.svg">
+                    <img src="architecture-overview.svg" alt="Vista General de Arquitectura">
+                </object>
+            </div>
+        </section>
+
+        <section id="use-case" class="diagram-section">
+            <span class="badge badge-behavioral">Comportamiento</span>
+            <h2>Diagrama de Casos de Uso</h2>
+            <p>Muestra las interacciones entre los actores (Usuario y Administrador) y las funcionalidades principales del sistema, incluyendo autenticacion, gestion de productos y operaciones CRUD.</p>
+            <div class="diagram-container">
+                <object type="image/svg+xml" data="use-case-diagram.svg">
+                    <img src="use-case-diagram.svg" alt="Diagrama de Casos de Uso">
+                </object>
+            </div>
+        </section>
+
+        <section id="class" class="diagram-section">
+            <span class="badge badge-structural">Estructural</span>
+            <h2>Diagrama de Clases</h2>
+            <p>Representa la estructura estatica del sistema, mostrando las clases principales (Controllers, Services, DTOs, Models), sus atributos, metodos y las relaciones entre ellas.</p>
+            <div class="diagram-container">
+                <object type="image/svg+xml" data="class-diagram.svg">
+                    <img src="class-diagram.svg" alt="Diagrama de Clases">
+                </object>
+            </div>
+        </section>
+
+        <section id="component" class="diagram-section">
+            <span class="badge badge-structural">Estructural</span>
+            <h2>Diagrama de Componentes</h2>
+            <p>Ilustra la organizacion y dependencias entre los componentes del sistema: capa de presentacion (Controllers), capa de negocio (Services) y capa de datos (DbContext, Entity Framework).</p>
+            <div class="diagram-container">
+                <object type="image/svg+xml" data="component-diagram.svg">
+                    <img src="component-diagram.svg" alt="Diagrama de Componentes">
+                </object>
+            </div>
+        </section>
+
+        <section id="sequence-auth" class="diagram-section">
+            <span class="badge badge-behavioral">Comportamiento</span>
+            <h2>Diagrama de Secuencia - Autenticacion</h2>
+            <p>Detalla el flujo de autenticacion de usuarios, incluyendo el proceso de login, validacion de credenciales, generacion de JWT y manejo de errores de autenticacion.</p>
+            <div class="diagram-container">
+                <object type="image/svg+xml" data="sequence-auth.svg">
+                    <img src="sequence-auth.svg" alt="Diagrama de Secuencia - Autenticacion">
+                </object>
+            </div>
+        </section>
+
+        <section id="sequence-products" class="diagram-section">
+            <span class="badge badge-behavioral">Comportamiento</span>
+            <h2>Diagrama de Secuencia - Gestion de Productos</h2>
+            <p>Muestra el flujo de operaciones CRUD para productos, incluyendo la interaccion entre el cliente, controlador, servicio y base de datos, asi como la validacion de autorizacion.</p>
+            <div class="diagram-container">
+                <object type="image/svg+xml" data="sequence-productos.svg">
+                    <img src="sequence-productos.svg" alt="Diagrama de Secuencia - Productos">
+                </object>
+            </div>
+        </section>
+
+        <section id="er" class="diagram-section">
+            <span class="badge badge-data">Datos</span>
+            <h2>Diagrama Entidad-Relacion</h2>
+            <p>Representa el modelo de datos del sistema, mostrando las entidades (Usuario, Producto) con sus atributos y las relaciones entre ellas en la base de datos.</p>
+            <div class="diagram-container">
+                <object type="image/svg+xml" data="er-diagram.svg">
+                    <img src="er-diagram.svg" alt="Diagrama Entidad-Relacion">
+                </object>
+            </div>
+        </section>
+
+        <section id="deployment" class="diagram-section">
+            <span class="badge badge-deployment">Despliegue</span>
+            <h2>Diagrama de Despliegue</h2>
+            <p>Describe la arquitectura fisica del sistema, mostrando los nodos de despliegue (servidor web, servidor de base de datos) y los artefactos desplegados en cada uno.</p>
+            <div class="diagram-container">
+                <object type="image/svg+xml" data="deployment-diagram.svg">
+                    <img src="deployment-diagram.svg" alt="Diagrama de Despliegue">
+                </object>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Product Management API - Documentacion Tecnica</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Generado con PlantUML</p>
+    </footer>
+</body>
+</html>
